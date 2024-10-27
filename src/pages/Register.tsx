@@ -42,6 +42,7 @@ const Register: React.FC = () => {
                 navigate(`/verify-email?id=${response._id}`)
             })
             .catch((error) => {
+                toast.error(error.response.data.message);
                 console.error('Register error:', error);
             })
     };
