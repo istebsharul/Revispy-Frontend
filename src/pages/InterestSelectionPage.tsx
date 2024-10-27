@@ -24,7 +24,7 @@ const InterestsForm: React.FC = () => {
 
       if (user) {
         try {
-          const response = await axios.get(`http://localhost:3000/api/auth/get-interests/${user._id}`);
+          const response = await axios.get(`https://revispy-backend.vercel.app/api/auth/get-interests/${user._id}`);
           const userInterests = response.data.interests; // Assuming this is an array of interest names
 
           // Update interests based on user's saved interests
@@ -55,7 +55,7 @@ const InterestsForm: React.FC = () => {
       .map(interest => interest.name);
 
     try {
-      await axios.post('http://localhost:3000/api/auth/add-interest', {
+      await axios.post('https://revispy-backend.vercel.app/api/auth/add-interest', {
         userId: user?._id,
         interests: selectedInterests,
       });
