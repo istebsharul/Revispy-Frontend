@@ -15,6 +15,7 @@ export const registerUser = async (name: string, email: string, password: string
   )
     .then(response => response.data)
     .catch(error => {
+      toast.error(error.response.data.message);
       console.error('Error during registration:', error);
       throw error;
     });
